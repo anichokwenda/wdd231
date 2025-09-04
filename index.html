@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang = "en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Home Page</title>
+    <meta name="description" content="This page .....">
+    <meta name="author" content="Anisa Chokwenda">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/home-large.css">
+    <script src="scripts/home.js" defer></script>
+</head>
+<body>
+    <header>
+        <img src="images/logo.svg" alt="Site Logo">
+        <span>Anisa Chokwenda</span>
+        <button id="hamburger" aria-label="Open navigation menu">&#9776;</button>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#">Home</a></li>                              
+                <li><a href="#">Chamber</a></li>
+                <li><a href="#">Final</a></li>              
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Home</h1>
+        <section>
+            <h2>About Me</h2>
+            <p> I am Anisa Chokwenda, Born and bred in Zimbabwe. I'm fond of a lot of exciting things especially visiting historical sites in my country.</p>
+        </section>
+        <section>
+            <h2>Student Photo</h2>
+            <img src ="images/studentphoto.jpg" alt="Student Photo">
+        </section>
+        <section>
+            <h2>Web Certificate Courses</h2>
+            <div id="course-filter">
+                <button id="show-all">All Courses</button>
+                <button id="show-wdd">WDD Courses</button>
+                <button id="show-cse">CSE Courses</button>
+            </div>
+            <div id="course-list">
+                
+            </div>
+            <p id="total-credits"></p>
+        </section>
+    </main>
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/yourgithub" target="_blank" aria-label="GitHub"><img src="github.svg" alt="GitHub"></a>
+            <a href="https://www.linkedin.com/in/anisa-chokwenda-01108833a" target="_blank" aria-label="LinkedIn"><img src="images/linkedin.svg" alt="LinkedIn"><a>                                                                                                        
+        </div>
+        <p>&copy; <span id="currentyear"></span> Anisa Chokwenda, Zimbabwe</p>
+        <p id="lastModified"></p>
+        
+    </footer>
+</body>
+</html>
