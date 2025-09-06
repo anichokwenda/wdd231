@@ -1,16 +1,11 @@
 :root {
-    --primary-color: #B1DDF1;
-    /*uranian blue*/
-    --secondary_color: #9F87AF;
-    /*african violet*/
-    --accent1-color: #614344;
-    /*rose ebony*/
-    --accent2-color: #88527F;
-    /*plum*/
+    --primary-color: #B1DDF1; /*uranian blue*/
+    --secondary-color: #9F87AF; /*african violet*/
+    --accent1-color: #614344; /*rose ebony*/
+    --accent2-color: #88527F; /*plum*/
     --heading-font: "Gloria Hallelujah", sans-serif;
     --body-font: "Ancizar Serif", serif;
 }
-
 
 body {
     font-family: var(--body-font);
@@ -18,10 +13,7 @@ body {
     padding: 0;
     color: var(--accent1-color);
 }
-.logo {
-    width: 10px;
-    height: 20%;
-}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -38,6 +30,10 @@ nav ul {
     display: flex;
 }
 
+nav ul li {
+    margin-right: 1em;
+}
+
 nav a {
     color: #fff;
     text-decoration: none;
@@ -50,33 +46,32 @@ nav a:hover {
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
     padding: 2em;
+    max-width: 1200px;
+    margin: auto;
 }
 
-section {
+main section {
     background-color: #f0f0f0;
     padding: 1em;
-    margin-bottom: 1em;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+#course-filter {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 1em;
 }
 
-.social-links a {
-    margin: 0 10px;
+#course-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
-
 
 .course-card {
     margin: 10px;
@@ -92,24 +87,44 @@ footer {
 }
 
 .completed {
-    background-color: #efc6ed;
+    background-color: yellow;
 }
 
-.course-filter{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+.about-me-container {
+    display: flex;
+    justify-content: space-between;
 }
 
-#course-list{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+.about-me-text {
+    flex: 1;
+    padding-right: 20px;
 }
-@media (min-width:1025px){
-    .top-menubar{
-        display:none;
+.social-links a {
+    margin: 0 10px;
+}
+
+.site-logo {
+    width: 80px;
+    height: auto;
+    background-color: #ddd;
+}
+#hamburger {
+    display: none;
+}
+
+@media (min-width: 1025px) {
+    .top-menubar {
+        display: none;
     }
-
 }
+
+

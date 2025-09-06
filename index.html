@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +14,8 @@
 </head>
 <body>
     <header>
-        <img src="images/logo.svg" alt="Site Logo">
-        <span>Anisa Chokwenda</span>
+        <img src="images/logo.svg" alt="Site Logo" class="site-logo">
+        <span>Anisa Chokwenda Home Page</span>
         <button id="hamburger" aria-label="Open navigation menu">&#9776;</button>
         <nav id="nav-menu">
             <ul>
@@ -27,14 +27,20 @@
     </header>
     <main>
         <h1>Home</h1>
-        <section>
-            <h2>About Me</h2>
-            <p> I am Anisa Chokwenda, Born and bred in Zimbabwe. I'm fond of a lot of exciting things especially visiting historical sites in my country.</p>
-        </section>
-        <section>
-            <h2>Student Picture </h2>
-            <img src ="images/student.jpg" alt="Student Picture">
-        </section>
+        <div class="about-me-container">
+            <div class="about-me-text"> 
+                <section>
+                    <h2>About Me</h2>
+                    <p> I am Anisa Chokwenda, Born and bred in Zimbabwe. I'm fond of a lot of exciting things especially visiting historical sites in my country.</p>
+                </section>
+            </div>
+            <div class="student-photo">
+                <section>
+                    <h2>Student Picture </h2>
+                   <img src ="images/student.jpg" alt="Student Picture">
+                </section>
+            </div>
+        </div>
         <section>
             <h2>Web Certificate Courses</h2>
             <div id="course-filter">
@@ -50,8 +56,9 @@
     </main>
     <footer>
         <div class="social-links">
-            <a href="https://github.com/yourgithub" target="_blank" aria-label="GitHub"><img src="images/icons8-github.svg" alt="GitHub icon"></a>
-            <a href="https://www.linkedin.com/in/anisa-chokwenda-01108833a" target="_blank" aria-label="LinkedIn"><img src="images/icons8-linkedin.svg" alt="LinkedIn"></a>                                                                                                        
+            <a href="https://github.com/anichokwenda/wdd231.git" target="_blank" aria-label="GitHub"><img src="images/icons8-github.svg" alt="GitHub icon"></a>
+            <a href="https://www.linkedin.com/in/anisa-chokwenda-01108833a" target="_blank" aria-label="LinkedIn"><img src="images/icons8-linkedin.svg" alt="LinkedIn"></a>
+            <a href="https://" target="_blank" aria-label="Facebook"><img src="images/icons8-facebook-logo.svg" alt="Facebook icon"></a>                                                                                                      
         </div>
         <p>&copy; <span id="currentyear"></span> Anisa Chokwenda, Zimbabwe</p>
         <p id="lastModified"></p>
