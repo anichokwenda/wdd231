@@ -9,6 +9,7 @@
     top: 1em;
     right: 1em;
   }
+    
   nav ul {
     display: none;
     flex-direction: column;
@@ -71,20 +72,19 @@
     gap: 10px;
     margin-bottom: 10px;
   }
-  #course-list{
-    display: flex;
-    background-color: #f0f0f0;
+  #course-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
     padding: 10px;
-    border-radius: 5px;
-  }
-  .completed {
-    background-color: yellow;
-  }
+}
+  
   #course-list div {
     background-color: #dcdcdc;
     padding: 10px;
     margin-bottom: 8px;
     border-radius: 5px;
+    text-align: center;
   }
   h2 {
     background-color: #333;
@@ -101,16 +101,7 @@
     margin-top: 10px;
   }
     
-  .course-card{
-    width: 100%;
-    margin: 10px 0;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    
-  }
-  
+
   #course-filter button {
     padding: 8px 12px;
     background-color: #ccc;
@@ -121,4 +112,10 @@
   #course-filter button:hover{
     background-color: #d0d0d0;
   }
+}
+
+@media only screen and (max-width: 768px){
+    .completed {
+        background-color: yellow !important;
+    }
 }

@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Course list array
     const courses = [
         { name: 'WDD 130', credits: 3, completed: true },
-        { name: 'WDD 131', credits: 3, completed: false },
+        { name: 'WDD 131', credits: 3, completed: true },
+        { name: 'WDD 231', credits: 3, completed: false },
         { name: 'CSE 110', credits: 3, completed: true },
         // Add more courses here...
     ];
