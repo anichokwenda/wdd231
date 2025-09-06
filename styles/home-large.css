@@ -1,7 +1,22 @@
+:root {
+    --primary-color: #B1DDF1;
+    /*uranian blue*/
+    --secondary_color: #9F87AF;
+    /*african violet*/
+    --accent1-color: #614344;
+    /*rose ebony*/
+    --accent2-color: #88527F;
+    /*plum*/
+    --heading-font: "Gloria Hallelujah", sans-serif;
+    --body-font: "Ancizar Serif", serif;
+}
+
+
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: var(--body-font);
     margin: 0;
     padding: 0;
+    color: var(--accent1-color);
 }
 .logo {
     width: 10px;
