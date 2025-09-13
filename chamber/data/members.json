@@ -1,0 +1,66 @@
+
+[
+  {
+    "name": "Flashboss Ltd Co",
+    "address": "591 Henry Hartley St, Chegutu",
+    "phone": "00263774288992",
+    "website": "https://www.flashbox.co.zw", 
+         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXJzTroI79JuRklIUlObMASapxjMQW_gBQmg&s",               
+    "membershipLevel": 3,
+    "description": "We simply have the best pinting and graphics designing in town"
+  },
+  {
+    "name": "Cosy Architects",
+    "address": "1 Dr Mckenie, Chegutu",
+    "phone": "+263784303178",
+    "website":"",
+    "image": " https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJkK5PZrBk6HEAcGXRJtfIPhusiCbi4NyBgg&s",
+    "membershipLevel": 2,
+    "description": "At Cosy architects ,we offer a variety range of services including Building plans, bill of quantities , structural drawings and 3D"
+  },
+  {
+    "name": "Rianran Construction",
+    "address": "159 cnr Queen and George St, Chegutu",
+    "phone": "+263773347347",
+    "website": "https://www.rianran.co.zw",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU9RvHE8OliNOyUVDUnmNcoDjuTaGTlqvtYQ&s ",
+    "membershipLevel": 1,
+    "description": "Building, carpentry, pplumbing, electtrical, painting, refractory, paving, boundary wall, fencing, reservoir tanks, water proofing , wall and floor tiling"
+  },
+  {
+    "name": "Bryden Country School",
+    "address": "A5, 103km peg, Chegutu",
+    "phone": "+263772256962",
+    "website": "https://www.brydenschool.com",
+    "image": " https://i.ytimg.com/vi/eSXKDLEUsnk/hqdefault.jpg",
+    "membershipLevel": 5,
+    "description": "Bryden Country School is a close-knit, family school."
+  },
+  {
+    "name": "Charles Stewart Day Old Chicks (Pvt) Ltd",
+    "address": "Sun Valley Farm, Chegutu",
+    "phone": "+263772248317",
+    "website": "https://www.facebook.com/CharlesStewartZimbabwe/",
+    "image": "https://ornithology.com/wp-content/uploads/2018/03/easter-chick.jpg",
+    "membershipLevel": 5,
+    "description": "Charles Stewart Day Old Chicks was established in 1958 and has developed into one of Zimbabwe's leading producers of quality day old chicks."
+  },
+  {
+    "name": "Knight Avenue ER and Maternity Home",
+    "address": "9 Henry Hartley, Chegutu",
+    "phone": "+263775884344",
+    "website": "https://www.knightavenueclinic.co.zw",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvrVf0AdPaHOa0vXPO5Oe3APIuzeBF2cUcMg&s",
+    "membershipLevel": 3,
+    "description": "Knight Avenue ER and Maternity is a fully registered medical clinic according to Zimbabwean laws."
+  },
+  {
+    "name": "Swift",
+    "address": "239 Conwell Road, Chegutu",
+    "phone": "+263783241927",
+    "website": "https://www.swift.co.zw",
+    "image": " https://www.zimbabweyp.com/img/zw/c/1665325068-57-swift-chegutu.png",
+    "membershipLevel": 3,
+    "description": "Sift Group was establishedd over seventy years ago and has become a dynamic force in the world of freight."
+  }
+]
