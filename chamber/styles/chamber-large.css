@@ -1,8 +1,20 @@
+
+:root {
+    --primary-color: #B1DDF1; /*uranian blue*/
+    --secondary-color: #9F87AF; /*african violet*/
+    --accent1-color: #614344; /*rose ebony*/
+    --accent2-color: #88527F; /*plum*/
+    --heading-font: "Gloria Hallelujah", sans-serif;
+    --body-font: "Ancizar Serif", serif;
+}
+
 /* Basic color scheme */
 body {
-    font-family: Arial, sans-serif;
     background-color: lemonchiffon;
     color: black;
+    font-family: var(--body-font);
+    margin: 0;
+    padding: 0;
 }
 
 header {
