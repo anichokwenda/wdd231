@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Frontend Development I</title>
+    <link rel="stylesheet" href="styles/module.css">
+</head>
+<body>
+    <div class="course-info">
+        <h1>Web Frontend Development I</h1>
+        <h2>WDD231</h2>
+        <div class="section-container">
+            <div class="section-controls">
+                <label for="section-select">Choose a section:</label>
+                <select id="section-select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        <div class="section-controls">
+            <button id="enroll-btn">Enroll a Student</button>
+        </div>
+        <div class="section-controls">
+            <button id="drop-btn">Drop a Student</button>
+        </div>
+    </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Section</th>
+                    <th>Enrolled</th>
+                    <th>Instructor</th>
+                </tr>
+            </thead>
+            <tbody id="sections-table">
+                <!-- Data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script type="module" src="scripts/module.mjs"></script>
+</body>
+</html>
+
+
