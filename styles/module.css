@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.course-info {
+    background-color: #e0f7fa;
+    padding: 20px;
+    border: 1px solid #ddd;
+    width: 400px;
+    margin: 20px auto;
+}
+.course-info h2 {
+  text-align: center;
+}
+
+.section-container{
+  border: 1px solid #ddd;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.section-controls {
+    
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  
+}
+
+button {
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
