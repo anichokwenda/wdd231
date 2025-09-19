@@ -1,30 +1,29 @@
-
 :root {
-    --primary-color: #B1DDF1; /*uranian blue*/
-    --secondary-color: #9F87AF; /*african violet*/
-    --accent1-color: #614344; /*rose ebony*/
-    --accent2-color: #88527F; /*plum*/
-    --heading-font: "Gloria Hallelujah", sans-serif;
+    --primary-color: #B1DDF1;     /* uranian blue */
+    --secondary-color: #9F87AF;   /* african violet */
+    --accent1-color: #614344;     /* rose ebony */
+    --accent2-color: #88527F;     /* plum */
+    --heading-font: "Gloria Hallelujah", cursive, sans-serif;
     --body-font: "Ancizar Serif", serif;
 }
 
-/* Basic color scheme */
 body {
     background-color: lemonchiffon;
-    color: black;
+    color: #212121;
     font-family: var(--body-font);
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 1em;
+    background-color: var(--primary-color);
+    color: var(--accent1-color);
+    padding: 1em 0;
 }
 
 header h1 {
     margin: 0;
+    font-family: var(--heading-font);
 }
 
 nav ul {
@@ -32,19 +31,134 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
+    justify-content: center;
+    gap: 1.2em;
 }
 
 nav ul li {
-    margin-right: 1em;
+    margin: 0;
 }
 
 nav a {
-    color: #fff;
+    color: var(--accent1-color);
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--accent2-color);
 }
 
 main {
+    padding: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.hero img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.home-info-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.home-events, .current-weather, .weather-forecast {
+    flex: 1;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.home-events h2, .current-weather h2, .weather-forecast h2{
+    margin-top: 0;
+}
+
+.call-to-action {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--secondary-color);
+    padding: 0.8em 2em;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+.call-to-action a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+section h2 {
+    color: var(--accent2-color);
+    font-family: var(--heading-font);
+    margin-bottom: 0.6em;
+}
+
+/* Weather */
+.weather #weather-data {
+    background-color: #fff;
+    border: 1px solid #ddd;
     padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+/* Spotlights */
+.spotlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#spotlights-container {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.spotlight-card {
+    background-color: var(--primary-color);
+    border: 1px solid var(--accent1-color);
+    border-radius: 8px;
+    padding: 1em;
+    flex: 1 1 200px;
+    min-width: 200px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.spotlight-card img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 0.5em;
+}
+
+/* Members Grid/List */
+#members-container {
+    margin-top: 1em;
 }
 
 .grid-view {
@@ -60,15 +174,74 @@ main {
 .member-card {
     background-color: #fff;
     padding: 1em;
+    border-radius: 8px;
     border: 1px solid #ddd;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
 }
 
+.member-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 0.5em;
+}
+
+.member-card h3 {
+    margin: 0.2em 0 0.4em;
+    color: var(--accent1-color);
+}
+
+.member-card a {
+    color: var(--accent2-color);
+}
+
+/* Events Section */
+.events {
+    background: #fff;
+    padding: 1em;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+/* Footer */
 footer {
-    background-color: #eee;
-    color: black;
+    background-color: var(--secondary-color);
+    color: #fff;
     padding: 1em;
     text-align: center;
+    font-size: 0.95em;
+    margin-top: 2em;
+    border-radius: 0 0 12px 12px;
 }
 
+footer a {
+    color: #fff;
+    text-decoration: underline;
+}
 
+@media (max-width: 800px) {
+    .grid-view {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    main {
+        padding: 1em;
+    }
+    .hero img {
+        max-height: 180px;
+    }
+}
+
+@media (max-width: 500px) {
+    .grid-view {
+        grid-template-columns: 1fr;
+    }
+    .spotlights, #spotlights-container {
+        flex-direction: column;
+    }
+}
 
