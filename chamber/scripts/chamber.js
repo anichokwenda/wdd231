@@ -1,6 +1,29 @@
 document.getElementById('last-modified').textContent = document.lastModified;
 document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
+document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuList = document.getElementById('menu-list');
+
+    if (menuToggle && menuList) {
+        menuToggle.addEventListener('click', function () {
+            menuList.classList.toggle('show');
+            // Accessibility: toggle aria-expanded
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', (!expanded).toString());
+        });
+
+        // Optional: Hide menu if window is resized over 540px
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 540) {
+                menuList.classList.remove('show');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+});
+
+
 // Utility for membership level
 function getMembershipLevel(level) {
     switch (level) {
@@ -14,7 +37,6 @@ function getMembershipLevel(level) {
 }
 
 // --- Member Directory (Grid/List) ---
-// Only run if #members-container exists
 function displayMembers(members) {
     const membersContainer = document.getElementById('members-container');
     if (!membersContainer) return;
@@ -50,7 +72,7 @@ function displaySpotlights(members) {
   const eligible = members.filter(m => m.membershipLevel >= 3);
   // Shuffle and pick 3 random
   const shuffled = eligible.sort(() => Math.random() - 0.5);
-  const spotlights = shuffled.slice(0, Math.min(3, eligible.length)); // Ensure we don't try to show more than available
+  const spotlights = shuffled.slice(0, Math.min(3, eligible.length));
   container.innerHTML = '';
   spotlights.forEach(member => {
     const card = document.createElement('div');
@@ -85,13 +107,12 @@ async function fetchMembers() {
     }
 }
 
-// --- Weather ---
+// --- Weather Section ---
 async function getWeatherData() {
-    const apiEndpoint = 'https://api.openweathermap.org/data/2.5/forecast';
+    const apiEndpoint ='https://api.openweathermap.org/data/2.5/forecast';                                         
     const apiKey = 'd7fc4ed45ddb0b7faee203faed524052';
     const city = 'Chegutu';
-    const units = 'metric';
-
+    const units = 'imperial'; 
     try {
         const response = await fetch(`${apiEndpoint}?q=${city}&units=${units}&appid=${apiKey}`);
         if (!response.ok) throw new Error('Weather API error');
@@ -99,40 +120,54 @@ async function getWeatherData() {
         displayWeatherData(weatherData);
     } catch (error) {
         console.error('Error fetching weather data:', error);
-        const weatherDiv = document.getElementById('weather-data');
-        if (weatherDiv) weatherDiv.textContent = 'Unable to load weather data.';
+        const currentWeatherContainer = document.getElementById('weather-data');
+        if (currentWeatherContainer) currentWeatherContainer.textContent = 'Unable to load weather data.';
     }
 }
 
 function displayWeatherData(weatherData) {
-    const weatherContainer = document.getElementById('weather-data');
-    if (!weatherContainer) return;
-    if (!weatherData.list || weatherData.list.length === 0) {
-        weatherContainer.textContent = 'No weather data available.';
+    console.log('function displayWeatherData',weatherData);
+    console.log('Weather Data:', weatherData);
+    const currentWeatherContainer = document.getElementById('weather-data');
+    const forecastContainer = document.getElementById('forecast-data');
+    if (!currentWeatherContainer || !forecastContainer){
+        console.error('One or both containers not found.')
         return;
     }
-    // Current
+    if (!weatherData.list || weatherData.list.length === 0){
+        console.error('No weather data available.');
+        currentWeatherContainer.innerHTML = 'No weather data available.';
+        forecastContainer.innerHTML = 'No forecast data available.';
+        return;
+    }
+
     const currentWeather = weatherData.list[0];
     const currentHTML = `
-        <p>Current Temperature: ${currentWeather.main.temp}°C</p>
-        <p>Current Weather: ${currentWeather.weather[0].description}</p>
+        <p>Current Temperature: ${Math.round(currentWeather.main.temp)}°F</p>
         <img src="https://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png" alt="${currentWeather.weather[0].description}">
+        <p>Weather: ${currentWeather.weather[0].description}</p>
+        <p>High: ${Math.round(currentWeather.main.temp_max)}°F</p>
+        <p>Low: ${Math.round(currentWeather.main.temp_min)}°F</p>
+        <p>Humidity: ${currentWeather.main.humidity}%</p>
     `;
-    // Forecast (next 3 days)
+    currentWeatherContainer.innerHTML = currentHTML;
+
+    // Forecast for next days (pick 3 future days at 24hr intervals)
     const forecast = weatherData.list.filter((item, i) => i % 8 === 0).slice(1, 4);
+    if (forecast.length === 0) {
+        forecastContainer.innerHTML = 'No forecast data available.';
+        return;
+    }
+    const days = ['Tomorrow', 'Day After Tomorrow', 'In 3 Days'];
     const forecastHTML = forecast.map((item, i) => `
-        <p>Day ${i + 1}: ${item.main.temp}°C, ${item.weather[0].description}
+        <p>${days[i]}: ${Math.round(item.main.temp)}°F, ${item.weather[0].description}
         <img src="https://openweathermap.org/img/w/${item.weather[0].icon}.png" alt="${item.weather[0].description}">
         </p>
     `).join('');
-    weatherContainer.innerHTML = `
-        ${currentHTML}
-        <h3>3-Day Forecast:</h3>
-        ${forecastHTML}
-    `;
+    forecastContainer.innerHTML = forecastHTML;
+
 }
 
-// --- Init ---
 document.addEventListener('DOMContentLoaded', () => {
     fetchMembers();
     getWeatherData();

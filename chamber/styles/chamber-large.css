@@ -16,7 +16,7 @@ body {
 }
 
 header {
-    background-color: var(--primary-color);
+    background-color: #333;
     color: var(--accent1-color);
     padding: 1em 0;
 }
@@ -40,7 +40,7 @@ nav ul li {
 }
 
 nav a {
-    color: var(--accent1-color);
+    color: white;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.2s;
@@ -100,7 +100,7 @@ main {
 }
 
 .call-to-action a {
-    color: #fff;
+    color: black;
     text-decoration: none;
     font-size: 1.2em;
     font-weight: bold;
@@ -139,7 +139,7 @@ section h2 {
 }
 
 .spotlight-card {
-    background-color: var(--primary-color);
+    background-color: lavender;
     border: 1px solid var(--accent1-color);
     border-radius: 8px;
     padding: 1em;
@@ -210,8 +210,8 @@ section h2 {
 
 /* Footer */
 footer {
-    background-color: var(--secondary-color);
-    color: #fff;
+    background-color: #333;
+    color: white;
     padding: 1em;
     text-align: center;
     font-size: 0.95em;
@@ -220,7 +220,7 @@ footer {
 }
 
 footer a {
-    color: #fff;
+    color: yellow;
     text-decoration: underline;
 }
 
