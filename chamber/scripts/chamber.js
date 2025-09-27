@@ -1,7 +1,11 @@
 document.getElementById('last-modified').textContent = document.lastModified;
 document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
+// Set timestamp when page loads
 document.addEventListener('DOMContentLoaded', function () {
+    const timestamp = new Date().toLocaleString();
+    document.getElementById('timestamp').value = timestamp;
+    
     const menuToggle = document.getElementById('menu-toggle');
     const menuList = document.getElementById('menu-list');
 
@@ -21,8 +25,57 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+    
+    // Modal functionality
+    const modals = document.querySelectorAll('.modal');
+    const modalLinks = document.querySelectorAll('.modal-link');
+    const closeButtons = document.querySelectorAll('.close');
+    
+    // Open modal
+    modalLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const modalId = link.getAttribute('data-modal');
+            document.getElementById(modalId).style.display = 'block';
+        });
+    });
+    
+    // Close modal
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = button.closest('.modal');
+            modal.style.display = 'none';
+        });
+    });
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal')) {
+            e.target.style.display = 'none';
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            modals.forEach(modal => {
+                if (modal.style.display === 'block') {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+    });
+    
+    // Trigger animations after page load
+    setTimeout(() => {
+        const cards = document.querySelectorAll('.animate-card');
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 100}ms`;
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        });
+    }, 100);
 });
-
 
 // Utility for membership level
 function getMembershipLevel(level) {
@@ -109,7 +162,7 @@ async function fetchMembers() {
 
 // --- Weather Section ---
 async function getWeatherData() {
-    const apiEndpoint ='https://api.openweathermap.org/data/2.5/forecast';                                         
+    const apiEndpoint ='https://api.openweathermap.org/data/2.5/forecast';                                        
     const apiKey = 'd7fc4ed45ddb0b7faee203faed524052';
     const city = 'Chegutu';
     const units = 'imperial'; 
@@ -171,4 +224,23 @@ function displayWeatherData(weatherData) {
 document.addEventListener('DOMContentLoaded', () => {
     fetchMembers();
     getWeatherData();
+});
+
+const form = document.getElementById('join-form');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const params = new URLSearchParams();
+    params.append('firstName', formData.get('firstName'));
+    params.append('lastName', formData.get('lastName'));
+    params.append('organizationalTitle', formData.get('organizationalTitle'));
+    params.append('email', formData.get('email'));
+    params.append('mobileNumber', formData.get('mobileNumber'));
+    params.append('businessName', formData.get('businessName'));
+    params.append('membershipLevel', formData.get('membershipLevel'));
+    params.append('description', formData.get('description'));
+    params.append('timestamp', new Date().toLocaleString());
+
+    window.location.href = `thankyou.html?${params.toString()}`;
 });

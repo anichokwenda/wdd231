@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Chegutu Chamber of Commerce</title>
+    <meta name="description" content="Thank you for joining the Chegutu Chamber of Commerce">
+    <meta name="author" content="Anisa Chokwenda">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles/chamber.css">
+    <link rel="stylesheet" href="styles/chamber-large.css">
+</head>
+<body>
+    <header>
+        <nav id="main-nav">
+            <button id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+            <ul id="menu-list">
+               <li><a href="index.html">Home</a></li>
+               <li><a href="directory.html">Directory</a></li>
+               <li><a href="join.html">Join</a></li>
+               <li><a href="about.html">About</a></li>
+               <li><a href="podcast.html">Podcast</a></li>
+               <li><a href="events.html">Events</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="thank-you-container">
+            <h1>Thank you for joining!</h1>
+            <p>We appreciate your interest in becoming a member of the Chegutu Chamber of Commerce.</p>
+            
+            <h2>Your Information:</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">First Name:</span>
+                    <span id="firstName-display"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Last Name:</span>
+                    <span id="lastName-display"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Email:</span>
+                    <span id="email-display"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Mobile Number:</span>
+                    <span id="mobileNumber-display"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Business Name:</span>
+                    <span id="businessName-display"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Membership Level:</span>
+                    <span id="membershipLevel-display"></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Join Date:</span>
+                    <span id="timestamp-display"></span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2em; text-align: center;">
+                <a href="index.html" style="background-color: var(--secondary-color); color: white; padding: 0.75em 1.5em; text-decoration: none; border-radius: 4px; display: inline-block;">Return to Home</a>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Contact us: <a href="mailto:info@chegutu.org">info@chegutu.org</a></p>
+        <p>Developed by Anisa Chokwenda | WDD 231</p>
+        <p>Last modified: <span id="last-modified"></span></p>
+        <p>&copy; <span id="copyright-year"></span> Chegutu Chamber of Commerce</p>
+    </footer>
+    
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Display form data
+        document.getElementById('firstName-display').textContent = urlParams.get('firstName') || 'Not provided';
+        document.getElementById('lastName-display').textContent = urlParams.get('lastName') || 'Not provided';
+        document.getElementById('email-display').textContent = urlParams.get('email') || 'Not provided';
+        document.getElementById('mobileNumber-display').textContent = urlParams.get('mobileNumber') || 'Not provided';
+        document.getElementById('businessName-display').textContent = urlParams.get('businessName') || 'Not provided';
+        document.getElementById('membershipLevel-display').textContent = urlParams.get('membershipLevel') || 'Not provided';
+        document.getElementById('timestamp-display').textContent = urlParams.get('timestamp') || 'Not provided';
+        
+        // Set footer dates
+        document.getElementById('last-modified').textContent = document.lastModified;
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+        
+        // Menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const menuList = document.getElementById('menu-list');
+
+            if (menuToggle && menuList) {
+                menuToggle.addEventListener('click', function () {
+                    menuList.classList.toggle('show');
+                    // Accessibility: toggle aria-expanded
+                    const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                    menuToggle.setAttribute('aria-expanded', (!expanded).toString());
+                });
+
+                // Optional: Hide menu if window is resized over 540px
+                window.addEventListener('resize', function () {
+                    if (window.innerWidth > 540) {
+                        menuList.classList.remove('show');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

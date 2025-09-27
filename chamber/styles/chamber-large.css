@@ -224,6 +224,252 @@ footer a {
     text-decoration: underline;
 }
 
+.membership-level{
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.thank-you-info {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: auto;
+}
+.thank-you-info h2{
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+#join-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+#join-form button{
+    align-self: center;
+    padding: 0.75em 2em;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+#join-form button:hover {
+    background-color: var(--accent2-color);
+}
+#user-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#user-info li {
+    margin-bottom: 10px;
+}
+
+#user-info li strong {
+    font-weight: bold;
+}
+
+/* Membership cards with animation */
+.membership-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-top: 2em;
+    justify-content: center;
+}
+
+.membership-card {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1em;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+/* Animation for cards */
+.animate-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+/* Delayed animations */
+.animate-card:nth-child(1) { animation-delay: 0.1s; }
+.animate-card:nth-child(2) { animation-delay: 0.2s; }
+.animate-card:nth-child(3) { animation-delay: 0.3s; }
+.animate-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.membership-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-top: 2em;
+}
+
+.membership-card {
+    flex: 1 1 calc(25% - 1em); /* 4 cards with equal spacing */
+    min-width: 200px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .membership-card {
+        flex: 1 1 calc(50% - 1em); /* 2 cards on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .membership-card {
+        flex: 1 1 100%; /* 1 card on mobile */
+    }
+}
+
+.membership-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1em;
+    margin-top: 2em;
+    padding: 0 1em; 
+}
+
+.membership-card {
+    flex: 1 1 calc(25% - 1em);
+    min-width: 200px;
+    text-align: center;
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+/* For smaller screens, reduce to 2 columns */
+@media (max-width: 900px) {
+    .membership-card {
+        flex: 1 1 calc(50% - 1em);
+    }
+}
+
+/* For mobile screens, stack vertically */
+@media (max-width: 500px) {
+    .membership-card {
+        flex: 1 1 100%;
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    animation: modalopen 0.3s;
+}
+
+@keyframes modalopen {
+    from {opacity: 0; transform: translateY(-50px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close:hover {
+    color: black;
+}
+
+
+
+/* Thank you page styles */
+.thank-you-container {
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 2em;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.thank-you-container h1 {
+    color: var(--accent2-color);
+    text-align: center;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    margin-top: 2em;
+}
+
+.info-item {
+    padding: 0.5em;
+    border-bottom: 1px solid #ccc;
+}
+
+.info-label {
+    font-weight: bold;
+    color: var(--accent1-color);
+}
+
+
+
+@media (max-width: 600px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 800px) {
     .grid-view {
         grid-template-columns: repeat(2, 1fr);
@@ -234,6 +480,7 @@ footer a {
     .hero img {
         max-height: 180px;
     }
+    
 }
 
 @media (max-width: 500px) {
@@ -244,4 +491,3 @@ footer a {
         flex-direction: column;
     }
 }
-

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page for Chegutu Chamber of Commerce</title>
+    <meta name="description" content="Chegutu Chamber of Commerce Home Page">
+    <meta name="author" content="Anisa Chokwenda">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles/chamber.css">
+    <link rel="stylesheet" href="styles/chamber-large.css">
+</head>
+<body>
+    <header>
+        <nav id="main-nav">
+            <button id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+            <ul id="menu-list">
+               <li><a href="index.html">Home</a></li>
+               <li><a href="directory.html">Directory</a></li>
+               <li><a href="join.html">Join</a></li>
+               <li><a href="about.html">About</a></li>
+               <li><a href="podcast.html">Podcast</a></li>
+               <li><a href="events.html">Events</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h1> Please Join!</h1>
+        <section class="thank-you-info">
+            <h2>Your Information:</h2>
+            <form id="join-form">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+                
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+                
+                <label for="organizationalTitle">Organizational Title:</label>
+                <input type="text" id="organizationalTitle" name="organizationalTitle" 
+                       required pattern="[A-Za-z\s\-]{7,}" 
+                       title="Must contain at least 7 alphanumeric characters, spaces, or hyphens"
+                       autocomplete="organization-title">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required 
+                       autocomplete="email" 
+                       placeholder="example@domain.com">
+                
+                <label for="mobileNumber">Mobile Number:</label>
+                <input type="tel" id="mobileNumber" name="mobileNumber" required 
+                       autocomplete="tel">
+                
+                <label for="businessName">Business Name:</label>
+                <input type="text" id="businessName" name="businessName" required 
+                       autocomplete="organization">
+                
+                <label for="membershipLevel">Membership Level:</label>
+                <select id="membershipLevel" name="membershipLevel" required>
+                    <option value="">Select Membership Level</option>
+                    <option value="NP">NP Membership (Non-Profit)</option>
+                    <option value="Bronze">Bronze Membership</option>
+                    <option value="Silver">Silver Membership</option>
+                    <option value="Gold">Gold Membership</option>
+                </select>
+                
+                <label for="description">Business Description:</label>
+                <textarea id="description" name="description"></textarea>
+                
+                <input type="hidden" id="timestamp" name="timestamp" value="">
+                
+                <button type="submit">Join</button>
+            </form>
+
+            <!-- Membership Cards with Animation -->
+            <div class="membership-cards">
+                <div class="membership-card animate-card" data-delay="0">
+                    <h3>NP Membership</h3>
+                    <p>For non-profit organizations</p>
+                    <a href="#" class="modal-link" data-modal="np-modal">Learn More</a>
+                </div>
+                <div class="membership-card animate-card" data-delay="100">
+                    <h3>Bronze Membership</h3>
+                    <p>Basic membership benefits</p>
+                    <a href="#" class="modal-link" data-modal="bronze-modal">Learn More</a>
+                </div>
+                <div class="membership-card animate-card" data-delay="200">
+                    <h3>Silver Membership</h3>
+                    <p>Enhanced benefits</p>
+                    <a href="#" class="modal-link" data-modal="silver-modal">Learn More</a>
+                </div>
+                <div class="membership-card animate-card" data-delay="300">
+                    <h3>Gold Membership</h3>
+                    <p>Premium membership benefits</p>
+                    <a href="#" class="modal-link" data-modal="gold-modal">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Modals -->
+            <div id="np-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>NP Membership Benefits</h3>
+                    <ul>
+                        <li>Access to chamber events</li>
+                        <li>Networking opportunities</li>
+                        <li>Basic directory listing</li>
+                        <li>Newsletter updates</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="bronze-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>Bronze Membership Benefits</h3>
+                    <ul>
+                        <li>All NP benefits</li>
+                        <li>Spotlight feature on homepage</li>
+                        <li>Discounted event tickets</li>
+                        <li>Business directory listing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="silver-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>Silver Membership Benefits</h3>
+                    <ul>
+                        <li>All Bronze benefits</li>
+                        <li>Priority event seating</li>
+                        <li>Marketing support</li>
+                        <li>Training workshops</li>
+                        <li>Special discounts</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="gold-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>Gold Membership Benefits</h3>
+                    <ul>
+                        <li>All Silver benefits</li>
+                        <li>Premium spotlight placement</li>
+                        <li>Dedicated account manager</li>
+                        <li>Exclusive member events</li>
+                        <li>Advertising on homepage</li>
+                        <li>Priority registration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Contact us: <a href="mailto:info@chegutu.org">info@chegutu.org</a></p>
+        <p>Developed by Anisa Chokwenda | WDD 231</p>
+        <p>Last modified: <span id="last-modified"></span></p>
+        <p>&copy; <span id="copyright-year"></span> Chegutu Chamber of Commerce</p>
+    </footer>
+    <script src="scripts/chamber.js"></script>
+</body>
+</html>
