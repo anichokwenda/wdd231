@@ -491,3 +491,68 @@ footer a {
         flex-direction: column;
     }
 }
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'card1'
+        'card2'
+        'card3'
+        'card4'
+        'card5'
+        'card6'
+        'card7'
+        'card8';
+    gap: 1rem;
+    padding: 1rem;
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .grid-container {
+        grid-template-areas:
+            'card1 card2'
+            'card3 card4'
+            'card5 card6'
+            'card7 card8';
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.grid-container {
+        grid-template-areas:
+            'card1 card2 card3 card4'
+            'card5 card6 card7 card8';
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+@media (min-width: 1025px) {
+    .grid-container {
+        grid-template-areas:
+            'card1 card2 card3 card4'
+            'card5 card6 card7 card8';
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.card {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border: 1px solid #ddd;
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.card figure img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+@media (min-width: 641px) {
+    .card figure img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+}
+

@@ -145,7 +145,8 @@ function displaySpotlights(members) {
 async function fetchMembers() {
     try {
         const response = await fetch('data/members.json');
-        const members = await response.json();
+        const data = await response.json();
+        const members = data.members || [];
 
         // Show directory only if on directory page
         if (document.getElementById('members-container')) {
@@ -155,14 +156,40 @@ async function fetchMembers() {
         if (document.getElementById('spotlights-container')) {
             displaySpotlights(members);
         }
+        
+        // Show discover items only if on discover page
+        if (document.querySelector('.grid-container') && data.discoverItems) {
+            displayDiscoverItems(data.discoverItems);
+        }
     } catch (error) {
         console.error('Error fetching members:', error);
     }
 }
 
+// --- Display Discover Items ---
+function displayDiscoverItems(discoverItems) {
+    const container = document.querySelector('.grid-container');
+    if (!container) return;
+    
+    container.innerHTML = ''; // Clear existing content
+    
+    discoverItems.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style.gridArea = `card${index + 1}`;
+        card.innerHTML = `
+            <h2>${item.name}</h2>
+            <figure><img src="${item.image}" alt="${item.name}"></figure>
+            <address>${item.address}</address>
+            <p>${item.description}</p>
+        `;
+        container.appendChild(card);
+    });
+}
+
 // --- Weather Section ---
 async function getWeatherData() {
-    const apiEndpoint ='https://api.openweathermap.org/data/2.5/forecast';                                        
+    const apiEndpoint ='https://api.openweathermap.org/data/2.5/forecast';                                       
     const apiKey = 'd7fc4ed45ddb0b7faee203faed524052';
     const city = 'Chegutu';
     const units = 'imperial'; 
@@ -244,3 +271,27 @@ form.addEventListener('submit', (e) => {
 
     window.location.href = `thankyou.html?${params.toString()}`;
 });
+
+// Check if there's a last visit date in localStorage
+let lastVisit = localStorage.getItem('lastVisit');
+
+if (!lastVisit) {
+  // First visit
+  document.getElementById('message').innerText = "Welcome! Let us know if you have any questions.";
+} else {
+  // Calculate time difference in days
+  let lastVisitDate = parseInt(lastVisit);
+  let currentDate = Date.now();
+  let timeDiff = currentDate - lastVisitDate;
+  let daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+
+  if (daysDiff < 1) {
+    document.getElementById('message').innerText = "Back so soon! Awesome!";
+  } else {
+    let daysText = daysDiff === 1 ? 'day' : 'days';
+    document.getElementById('message').innerText = `You last visited ${daysDiff} ${daysText} ago.`;
+  }
+}
+
+// Store current date in localStorage
+localStorage.setItem('lastVisit', Date.now());

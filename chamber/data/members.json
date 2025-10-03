@@ -1,5 +1,5 @@
-
-[
+{
+  "members": [
   {
     "name": "Flashboss Ltd Co",
     "address": "591 Henry Hartley St, Chegutu",
@@ -63,4 +63,19 @@
     "membershipLevel": 3,
     "description": "Sift Group was establishedd over seventy years ago and has become a dynamic force in the world of freight."
   }
-]
+ 
+  ],
+  "discoverItems": [
+     
+    {"name": "Pamusoja", "address": "Queen street, Chegutu", "description": "we offer the best quality food", "image": "https://lh3.googleusercontent.com/p/AF1QipPEy-5f_E-cJ6nJmzuCER16VoOXWi2jem2uC_Ix=w520-h175-n-k-no"},
+    {"name": "Pamusoja", "address": "Queen street, Chegutu", "description": "we offer the best quality food", "image": "https://lh3.googleusercontent.com/p/AF1QipPEy-5f_E-cJ6nJmzuCER16VoOXWi2jem2uC_Ix=w520-h175-n-k-no"},
+    {"name": "Pamusoja", "address": "Queen street, Chegutu", "description": "we offer the best quality food", "image": "https://lh3.googleusercontent.com/p/AF1QipPEy-5f_E-cJ6nJmzuCER16VoOXWi2jem2uC_Ix=w520-h175-n-k-no"},
+    {"name": "Pamusoja", "address": "Queen street, Chegutu", "description": "we offer the best quality food", "image": "https://lh3.googleusercontent.com/p/AF1QipPEy-5f_E-cJ6nJmzuCER16VoOXWi2jem2uC_Ix=w520-h175-n-k-no"},
+    {"name": "Pamusoja", "address": "Queen street, Chegutu", "description": "we offer the best quality food", "image": "https://lh3.googleusercontent.com/p/AF1QipPEy-5f_E-cJ6nJmzuCER16VoOXWi2jem2uC_Ix=w520-h175-n-k-no"},
+    {"name": "Pamusoja", "address": "Queen street, Chegutu", "description": "we offer the best quality food", "image": "https://lh3.googleusercontent.com/p/AF1QipPEy-5f_E-cJ6nJmzuCER16VoOXWi2jem2uC_Ix=w520-h175-n-k-no"},
+    {"name": "Pamusoja", "address": "Queen street, Chegutu", "description": "we offer the best quality food", "image": "https://lh3.googleusercontent.com/p/AF1QipPEy-5f_E-cJ6nJmzuCER16VoOXWi2jem2uC_Ix=w520-h175-n-k-no"},
+    {"name": "Pamusoja", "address": "Queen street, Chegutu", "description": "we offer the best quality food", "image": "https://lh3.googleusercontent.com/p/AF1QipPEy-5f_E-cJ6nJmzuCER16VoOXWi2jem2uC_Ix=w520-h175-n-k-no"}
+
+  ]
+
+}
