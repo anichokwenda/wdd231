@@ -77,3 +77,12 @@
         grid-template-columns: 1fr;
     }
 }
+@media (max-width: 500px) {
+    .grid-view {
+        grid-template-columns: 1fr;
+    }
+    .spotlights, #spotlights-container {
+        flex-direction: column;
+    }
+}
+
