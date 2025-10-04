@@ -428,3 +428,58 @@ footer a {
 .close:hover {
     color: black;
 }
+/* Mobile Menu */
+#menu-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+#menu-list.show {
+    display: flex;
+}
+
+#menu-list li {
+    width: 100%;
+    text-align: center;
+}
+
+#menu-list a {
+    display: block;
+    padding: 1em;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #555;
+}
+
+#menu-list a:hover {
+    background-color: #555;
+}
+
+@media (min-width: 540px) {
+    #menu-list {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        width: auto;
+        background-color: transparent;
+        box-shadow: none;
+        margin-left: auto;
+    }
+    
+    #menu-list li {
+        width: auto;
+        text-align: left;
+        border-bottom: none;
+    }
+    
+    #menu-toggle {
+        display: none;
+    }
+}

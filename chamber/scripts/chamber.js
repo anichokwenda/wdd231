@@ -1,7 +1,6 @@
 document.getElementById('last-modified').textContent = document.lastModified;
 document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
-// Set timestamp when page loads
 document.addEventListener('DOMContentLoaded', function () {
     const timestamp = new Date().toLocaleString();
     document.getElementById('timestamp').value = timestamp;
@@ -17,7 +16,16 @@ document.addEventListener('DOMContentLoaded', function () {
             menuToggle.setAttribute('aria-expanded', (!expanded).toString());
         });
 
-        // Optional: Hide menu if window is resized over 540px
+        // Close menu when clicking a link
+        const menuLinks = menuList.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                menuList.classList.remove('show');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Hide menu if window is resized over 540px
         window.addEventListener('resize', function () {
             if (window.innerWidth > 540) {
                 menuList.classList.remove('show');
@@ -27,44 +35,45 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     // Modal functionality
-const modals = document.querySelectorAll('.modal');
-const modalLinks = document.querySelectorAll('.modal-link');
-const closeButtons = document.querySelectorAll('.close');
-
-// Open modal
-modalLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const modalId = link.getAttribute('data-modal');
-        document.getElementById(modalId).style.display = 'block';
-    });
-});
-
-// Close modal
-closeButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = button.closest('.modal');
-        modal.style.display = 'none';
-    });
-});
-
-// Close modal when clicking outside
-window.addEventListener('click', (e) => {
-    if (e.target.classList.contains('modal')) {
-        e.target.style.display = 'none';
-    }
-});
-
-// Close modal with Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        modals.forEach(modal => {
-            if (modal.style.display === 'block') {
-                modal.style.display = 'none';
-            }
+    const modals = document.querySelectorAll('.modal');
+    const modalLinks = document.querySelectorAll('.modal-link');
+    const closeButtons = document.querySelectorAll('.close');
+    
+    // Open modal
+    modalLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const modalId = link.getAttribute('data-modal');
+            document.getElementById(modalId).style.display = 'block';
         });
-    }
-});
+    });
+    
+    // Close modal
+    closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = button.closest('.modal');
+            modal.style.display = 'none';
+        });
+    });
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal')) {
+            e.target.style.display = 'none';
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            modals.forEach(modal => {
+                if (modal.style.display === 'block') {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+    });
+    
     // Trigger animations after page load
     setTimeout(() => {
         const cards = document.querySelectorAll('.animate-card');
@@ -75,7 +84,6 @@ document.addEventListener('keydown', (e) => {
         });
     }, 100);
 });
-
 // Utility for membership level
 function getMembershipLevel(level) {
     switch (level) {
