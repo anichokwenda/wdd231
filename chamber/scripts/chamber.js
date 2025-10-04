@@ -3,7 +3,7 @@ document.getElementById('copyright-year').textContent = new Date().getFullYear()
 
 document.addEventListener('DOMContentLoaded', function () {
     const timestamp = new Date().toLocaleString();
-    document.getElementById('timestamp').value = timestamp;
+    document.getElementById('timestamp')?.value = timestamp;
     
     const menuToggle = document.getElementById('menu-toggle');
     const menuList = document.getElementById('menu-list');
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-        // Hide menu if window is resized over 540px
+        // Optional: Hide menu if window is resized over 540px
         window.addEventListener('resize', function () {
             if (window.innerWidth > 540) {
                 menuList.classList.remove('show');
@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
     
     // Modal functionality
     const modals = document.querySelectorAll('.modal');
